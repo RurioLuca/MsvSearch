@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "26.0.2"
 
     defaultConfig {
         minSdkVersion 15
@@ -24,7 +23,4 @@ android {
 dependencies {
     implementation 'com.android.support:appcompat-v7:27.0.2'
     implementation 'com.android.support:recyclerview-v7:27.0.2'
-
-    // Immagini circolari
-    implementation 'de.hdodenhof:circleimageview:2.2.0'
 }

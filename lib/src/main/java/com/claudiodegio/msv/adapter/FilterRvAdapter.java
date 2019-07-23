@@ -8,14 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.claudiodegio.msv.R;
 import com.claudiodegio.msv.model.Filter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FilterRvAdapter extends RecyclerView.Adapter<FilterRvAdapter.BaseViewHolder> {
 
@@ -24,12 +22,13 @@ public class FilterRvAdapter extends RecyclerView.Adapter<FilterRvAdapter.BaseVi
     private LayoutInflater mInflater;
     private List<Filter> mList;
 
-    public FilterRvAdapter(Context context){
+    public FilterRvAdapter(Context context) {
         this.mCtx = context;
         this.mInflater = LayoutInflater.from(context);
         mList = new ArrayList<>();
         setHasStableIds(false);
     }
+
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = null;
@@ -61,10 +60,10 @@ public class FilterRvAdapter extends RecyclerView.Adapter<FilterRvAdapter.BaseVi
         }
 
         mList.add(mFilter);
-        notifyItemInserted(mList.size()-1);
+        notifyItemInserted(mList.size() - 1);
     }
 
-    public void clear(){
+    public void clear() {
         mList.clear();
         notifyDataSetChanged();
     }
@@ -79,14 +78,15 @@ public class FilterRvAdapter extends RecyclerView.Adapter<FilterRvAdapter.BaseVi
         return filter;
     }
 
-    public void setFilters(List<Filter> list){
+    public void setFilters(List<Filter> list) {
         mList = list;
         notifyDataSetChanged();
     }
 
-    public List<Filter> getFilters(){
+    public List<Filter> getFilters() {
         return mList;
     }
+
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
         holder.bind(mList.get(position));
@@ -105,7 +105,7 @@ public class FilterRvAdapter extends RecyclerView.Adapter<FilterRvAdapter.BaseVi
 
         Filter filter = mList.get(position);
 
-        if (filter.getIconBgColor() == View.NO_ID){
+        if (filter.getIconBgColor() == View.NO_ID) {
             return 0;
         }
         return 1;
@@ -114,6 +114,7 @@ public class FilterRvAdapter extends RecyclerView.Adapter<FilterRvAdapter.BaseVi
     class BaseViewHolder extends RecyclerView.ViewHolder {
 
         TextView mTextView;
+
         public BaseViewHolder(View itemView) {
             super(itemView);
             mTextView = (TextView) itemView.findViewById(android.R.id.text1);
@@ -127,6 +128,7 @@ public class FilterRvAdapter extends RecyclerView.Adapter<FilterRvAdapter.BaseVi
     class IvViewHolder extends BaseViewHolder {
 
         ImageView mIv;
+
         public IvViewHolder(View itemView) {
             super(itemView);
             mIv = (ImageView) itemView.findViewById(R.id.iv_icon);
@@ -136,21 +138,21 @@ public class FilterRvAdapter extends RecyclerView.Adapter<FilterRvAdapter.BaseVi
         public void bind(Filter filter) {
             super.bind(filter);
 
-           if (filter.hasIconRefId()) {
-               mIv.setImageResource(filter.getIconRefId());
-           } else {
-               mIv.setImageDrawable(filter.getIconDrawable());
-           }
+            if (filter.hasIconRefId()) {
+                mIv.setImageResource(filter.getIconRefId());
+            } else {
+                mIv.setImageDrawable(filter.getIconDrawable());
+            }
         }
     }
 
     class CivViewHolder extends BaseViewHolder {
 
-        CircleImageView mCIV;
+        ImageView mCIV;
 
         public CivViewHolder(View itemView) {
             super(itemView);
-            mCIV = (CircleImageView) itemView.findViewById(R.id.civ_icon);
+            mCIV = (ImageView) itemView.findViewById(R.id.civ_icon);
         }
 
         @Override
@@ -161,7 +163,7 @@ public class FilterRvAdapter extends RecyclerView.Adapter<FilterRvAdapter.BaseVi
             } else {
                 mCIV.setImageDrawable(filter.getIconDrawable());
             }
-            mCIV.setFillColor(filter.getIconBgColor());
+            mCIV.setColorFilter(filter.getIconBgColor());
         }
     }
 }

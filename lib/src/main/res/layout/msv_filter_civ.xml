@@ -8,7 +8,7 @@
     android:background="@drawable/msv_filter_background"
     android:gravity="center">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/civ_icon"
         android:layout_width="@dimen/msv_filter_height"
         android:layout_height="@dimen/msv_filter_height" />

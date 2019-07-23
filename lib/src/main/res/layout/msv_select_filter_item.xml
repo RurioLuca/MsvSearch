@@ -15,7 +15,7 @@
         android:layout_gravity="center_vertical"
         android:scaleType="center" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/civ_icon"
         android:layout_marginLeft="@dimen/msv_select_filter_left_margin"
         android:layout_width="@dimen/msv_select_filter_icon_size"

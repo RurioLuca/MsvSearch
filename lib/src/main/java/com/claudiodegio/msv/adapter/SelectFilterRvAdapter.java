@@ -19,7 +19,6 @@ import com.claudiodegio.msv.model.Section;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SelectFilterRvAdapter extends RecyclerView.Adapter<SelectFilterRvAdapter.BaseViewHolder> implements Filterable {
 
@@ -171,12 +170,12 @@ public class SelectFilterRvAdapter extends RecyclerView.Adapter<SelectFilterRvAd
     class ItemViewHolder extends BaseViewHolder {
 
         TextView mTextView;
-        CircleImageView mCiv;
+        ImageView mCiv;
         ImageView mIv;
         public ItemViewHolder(View itemView) {
             super(itemView);
             mTextView = (TextView) itemView.findViewById(R.id.tv_name);
-            mCiv =  (CircleImageView)itemView.findViewById(R.id.civ_icon);
+            mCiv =  (ImageView)itemView.findViewById(R.id.civ_icon);
             mIv = (ImageView)itemView.findViewById(R.id.iv_icon);
         }
 
@@ -194,7 +193,7 @@ public class SelectFilterRvAdapter extends RecyclerView.Adapter<SelectFilterRvAd
                 mIv.setVisibility(View.GONE);
                 mCiv.setVisibility(View.VISIBLE);
 
-                mCiv.setFillColor(color);
+                mCiv.setColorFilter(color);
                 if (filter.hasIconRefId()) {
                     mCiv.setImageResource(filter.getIconRefId());
                 } else {
